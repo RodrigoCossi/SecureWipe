@@ -26,7 +26,9 @@ SecureWipe allows you to:
 - Define the number of passes (how many times it overwrites the disk)
 - Run a secure, scripted wipe using `diskpart`
 
-Each pass overwrites the disk using the `clean all` command, which zeroes the disk. You can choose from 1 to 99 passes (we recommend 10+ for sensitive data).
+First pass: Overwrites the disk with 0x00
+Second pass: Overwrites with 0xFF
+Third pass: Overwrites with random data
 
 ---
 
