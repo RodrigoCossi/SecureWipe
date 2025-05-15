@@ -11,7 +11,6 @@
 
 ## 🚀 Features
 - Interactive disk selection
-- Supports multiple secure "zero" passes (DoD-style)
 - Diskpart automation for cleanup and formatting
 - Protects USB execution with RAM drive fallback
 - Guardrails in place to avoid wiping the system drive or USB accidentally.
@@ -21,7 +20,7 @@
 
 ## 💡 How It Works
 
-SecureWipe helps you:
+SecureWipe allows you to:
 - View all disks connected to the system
 - Select the correct one by ID
 - Define the number of passes (how many times it overwrites the disk)
