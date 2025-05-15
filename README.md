@@ -23,12 +23,12 @@
 SecureWipe allows you to:
 - View all disks connected to the system
 - Select the correct one by ID
-- Define the number of passes (how many times it overwrites the disk)
 - Run a secure, scripted wipe using `diskpart`
 
-First pass: Overwrites the disk with 0x00
-Second pass: Overwrites with 0xFF
-Third pass: Overwrites with random data
+Description of each pass:
+- First pass: Overwrites the disk with 0x00
+- Second pass: Overwrites with 0xFF
+- Third pass: Overwrites with random data
 
 ---
 
