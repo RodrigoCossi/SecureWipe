@@ -24,7 +24,7 @@
 SecureWipe allows you to:
 - View all disks connected to the system
 - Select the correct one by ID
-- Run a secure, scripted wipe using `diskpart`
+- Run a secure, scripted wipe using the `diskpart` utility
 
 Description of each pass:
 - First pass: Overwrites the disk with 0x00
