@@ -12,6 +12,7 @@
 ## 🚀 Features
 - Interactive disk selection
 - Diskpart automation for cleanup and formatting
+- Possibility to choose from a range of different file systems formats (ntfs being the default choice)
 - Protects USB execution with RAM drive fallback
 - Guardrails in place to avoid wiping the system drive or USB accidentally.
 - Final full wipe after pass loop
