@@ -46,6 +46,8 @@ format fs=ntfs quick
 assign letter=Z
 exit
 "@
+# consider adding option to select different file systems?
+
     $script | Out-File "$env:TEMP\diskpart_script.txt" -Encoding ASCII
     diskpart /s "$env:TEMP\diskpart_script.txt" | Out-Null
 
