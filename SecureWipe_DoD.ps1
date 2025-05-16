@@ -29,7 +29,10 @@ function Get-User-Input {
     $global:SelectedDisk = $diskID
 
     do {
-        $fs = Read-Host "Enter the file system format (ntfs, fat32, exfat, ext4, apfs)"
+        $fs = Read-Host "Enter the file system format to use (ntfs, fat32, exfat, ext4, apfs) [default: ntfs]"
+        if ([string]::IsNullOrWhiteSpace($fs)) {
+            $fs = "ntfs"
+        }
     } until ($fs -in @("ntfs", "fat32", "exfat", "ext4", "apfs"))
     
     $global:FileSystemType = $fs
