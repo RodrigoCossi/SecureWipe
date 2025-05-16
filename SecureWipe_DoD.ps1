@@ -127,6 +127,6 @@ function Secure-Wipe {
 }
 
 # Main
-Copy-Files-To-Ram-Drive()
+Copy-Files-To-Ram-Drive
 Get-User-Input
 Secure-Wipe
