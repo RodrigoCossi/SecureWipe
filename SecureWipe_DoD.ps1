@@ -2,6 +2,8 @@
 
 $disks = Get-Disk
 $disk_IDs = @()
+$global:FileSystemType = "ntfs"  # default value
+
 
 function Show-Disk-Info {
     Clear-Host
@@ -26,6 +28,16 @@ function Get-User-Input {
 
     $global:SelectedDisk = $diskID
 
+    do {
+        $fs = Read-Host "Enter the file system format (ntfs, fat32, exfat, ext4, apfs)"
+    } until ($fs -in @("ntfs", "fat32", "exfat", "ext4", "apfs"))
+    
+    $global:FileSystemType = $fs
+
+    
+    $global:FileSystemType = $fs
+
+
     Clear-Host
     Write-Host "You are about to wipe Disk ID $SelectedDisk with DoD 5220.22-M method." -ForegroundColor Yellow
     Write-Host "Type 'confirm' to proceed or Ctrl+C to abort."
@@ -42,11 +54,10 @@ function Overwrite-Disk([string]$pattern, [int]$passNumber) {
 select disk $SelectedDisk
 clean all
 create partition primary
-format fs=ntfs quick
+format fs=$FileSystemType quick
 assign letter=Z
 exit
 "@
-# consider adding option to select different file systems?
 
     $script | Out-File "$env:TEMP\diskpart_script.txt" -Encoding ASCII
     diskpart /s "$env:TEMP\diskpart_script.txt" | Out-Null
