@@ -5,13 +5,13 @@ $disk_IDs = @()
 $global:FileSystemType = "ntfs"  # default value
 
 function Copy-Files-To-Ram-Drive() {
-    if (-Not ((Test-Path "$($SYSTEM_DRIVE)\jwipe.bat") -And (Test-Path "$($SYSTEM_DRIVE)\jwipe.ps1"))) {
+    if (-Not ((Test-Path "$($SYSTEM_DRIVE)\SecureWipe.bat") -And (Test-Path "$($SYSTEM_DRIVE)\SecureWipe.ps1"))) {
         Write-Host ""
-        Write-Host "RAM Drive missing jwipe files. Copying files necessary to be able to remove USB..." -ForegroundColor Green
+        Write-Host "RAM Drive missing SecureWipe files. Copying files necessary to be able to remove USB..." -ForegroundColor Green
         $JUNK | Out-File .\_._
         Copy-Item -Path .\_._ -Destination "$($SYSTEM_DRIVE)\_._"
-        Copy-Item -Path .\jwipe.bat -Destination "$($SYSTEM_DRIVE)\jwipe.bat"
-        Copy-Item -Path .\jwipe.ps1 -Destination "$($SYSTEM_DRIVE)\jwipe.ps1"
+        Copy-Item -Path .\SecureWipe.bat -Destination "$($SYSTEM_DRIVE)\SecureWipe.bat"
+        Copy-Item -Path .\SecureWipe.ps1 -Destination "$($SYSTEM_DRIVE)\SecureWipe.ps1"
     }
     else {
         return # Files already exist, do exit function
@@ -19,7 +19,7 @@ function Copy-Files-To-Ram-Drive() {
     Set-Location $ENV:SystemDrive
     Write-Host "Relaunching jwipe from Ram Drive." -ForegroundColor Green
     Start-Sleep -Seconds 3
-    Powershell.exe -File .\jwipe.ps1
+    Powershell.exe -File .\SecureWipe.ps1
     Exit
 }
 
