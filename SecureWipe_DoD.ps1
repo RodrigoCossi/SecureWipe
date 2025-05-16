@@ -17,7 +17,7 @@ function Copy-Files-To-Ram-Drive() {
         return # Files already exist, do exit function
     }
     Set-Location $ENV:SystemDrive
-    Write-Host "Relaunching jwipe from Ram Drive." -ForegroundColor Green
+    Write-Host "Relaunching SecureWipe from Ram Drive." -ForegroundColor Green
     Start-Sleep -Seconds 3
     Powershell.exe -File .\SecureWipe.ps1
     Exit
