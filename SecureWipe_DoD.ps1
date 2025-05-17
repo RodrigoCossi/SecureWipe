@@ -55,10 +55,6 @@ function Get-User-Input {
     
     $global:FileSystemType = $fs
 
-    
-    $global:FileSystemType = $fs
-
-
     Clear-Host
     Write-Host "You are about to wipe Disk ID $SelectedDisk with DoD 5220.22-M method." -ForegroundColor Yellow
     Write-Host "Type 'confirm' to proceed or Ctrl+C to abort."
