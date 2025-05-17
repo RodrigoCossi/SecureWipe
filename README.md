@@ -49,6 +49,8 @@ Disk Partition: GPT
 
 Enter the Disk ID you want to securely wipe: 1
 
+Enter the file system format to use (ntfs, fat32, exfat, ext4, apfs) [default: ntfs]: ntfs
+
 You are about to wipe Disk ID 1 with DoD 5220.22-M method.
 Type 'confirm' to proceed or Ctrl+C to abort: confirm
 
