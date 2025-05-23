@@ -86,7 +86,7 @@ If you’re running SecureWipe from a **USB stick**, it will copy itself and req
 ## 📂 File Overview
 
 - `SecureWipe.ps1` – Main script
-- `unattend.txt` – Temporary file used to send commands to `diskpart`
+- `diskpart_script.txt` – Temporary file used to send commands to `diskpart`
 - `SecureWipe.bat` and `SecureWipe.ps1` – Auto-copied to RAM if launched from USB
 
 ---
