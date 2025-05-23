@@ -116,6 +116,7 @@ exit
     }
 }
 
+# to wipe FS and buffer left for system stability, during the 3-pass wipe.
 function Final-Wipe {
     Write-Host "`nPerforming final full wipe with 'clean all'..." -ForegroundColor Magenta
     
