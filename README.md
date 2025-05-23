@@ -11,10 +11,10 @@
 
 ## 🚀 Features
 - Interactive disk selection
-- Diskpart automation for cleanup and formatting (ntfs, fat32, exfat)
+- Diskpart automation for cleanup and reformatting
 - Protects USB execution with RAM drive fallback
 - Guardrails in place to avoid wiping the system drive or USB accidentally.
-- Final full wipe after pass loop
+- Final wipe after pass loop (clears disk filesystem)
 
 ---
 
