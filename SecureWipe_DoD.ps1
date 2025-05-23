@@ -2,6 +2,7 @@
 
 $disks = Get-Disk
 $disk_IDs = @()
+$global:SelectedDisk = $null
 $global:FileSystemType = "ntfs"  # default value
 
 function Copy-Files-To-Ram-Drive() {
