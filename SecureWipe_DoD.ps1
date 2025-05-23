@@ -46,6 +46,7 @@ function Get-User-Input {
 
     $global:SelectedDisk = $diskID
 
+    <# (optional): can be used to reformat the disk to another reusable FS. Only meaningful if Final-Wipe() is not executed.
     do {
         $fs = Read-Host "Enter the file system format to use (ntfs, fat32, exfat) [default: ntfs]"
         if ([string]::IsNullOrWhiteSpace($fs)) {
@@ -54,6 +55,7 @@ function Get-User-Input {
     } until ($fs -in @("ntfs", "fat32", "exfat"))
     
     $global:FileSystemType = $fs
+    #>
 
     Clear-Host
     Write-Host "You are about to wipe Disk ID $SelectedDisk with DoD 5220.22-M method." -ForegroundColor Yellow
@@ -113,13 +115,29 @@ exit
     }
 }
 
+function Final-Wipe {
+    Write-Host "`nPerforming final full wipe with 'clean all'..." -ForegroundColor Magenta
+    
+    $script = @"
+select disk $SelectedDisk
+clean all
+exit
+"@
+
+    $script | Out-File "$env:TEMP\diskpart_finalwipe.txt" -Encoding ASCII
+    diskpart /s "$env:TEMP\diskpart_finalwipe.txt" | Out-Null
+
+    Write-Host "Final wipe complete." -ForegroundColor Green
+}
+
 function Secure-Wipe {
     Overwrite-Disk "zeros" 1
     Overwrite-Disk "ones" 2
     Overwrite-Disk "random" 3
+    Final-Wipe
 
     Clear-Host
-    Write-Host "`nSecure wipe complete!" -ForegroundColor Green
+    Write-Host "`nSecure Wipe complete!" -ForegroundColor Green
 }
 
 # Main
